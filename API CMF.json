@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "602284b9-a45c-4bdf-926b-2833c44b7cdc",
+		"name": "API CMF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16607431"
+	},
+	"item": [
+		{
+			"name": "Dólar año anterior",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Respuesta JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"//Tiempo de respuesta en milisegundos\r",
+							"var responseTime = pm.response.responseTime;\r",
+							"//Variable para la fecha buscada\r",
+							"var fechaBuscada = \"2022-08-31\";\r",
+							"\r",
+							"//Verificar si \"Dolares\" está presente en la respuesta:\r",
+							"pm.test(\"Verificar que la respuesta contiene 'Dolares'\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"Dolares\");\r",
+							"});\r",
+							"\r",
+							"//Verificar que el tiempo de respuesta sea menor que 500 ms:\r",
+							"pm.test(\"Tiempo de respuesta por debajo de 500 ms\", function () {\r",
+							"    pm.expect(responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"//Verificar si la respuesta contiene un dato para una fecha específica:\r",
+							"pm.test(\"Verificar que la respuesta contiene datos para el 31 de agosto de 2022\", function () {\r",
+							"    var elementoEncontrado = jsonData.Dolares.find(function (elemento) {\r",
+							"        return elemento.Fecha === fechaBuscada;\r",
+							"    });\r",
+							"    pm.expect(elementoEncontrado).to.not.be.undefined;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "e6c287e75a6d492005437a544a8ad8cedf2fe89e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/dolar/2022?formato=json",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"dolar",
+						"2022"
+					],
+					"query": [
+						{
+							"key": "formato",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Euro día actual",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Respuesta JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"//Verificar que el encabezado \"Content-Type\" esté presente en la respuesta:\r",
+							"pm.test(\"Verificar que el encabezado 'Content-Type' esté presente\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"//Verificar que la respuesta contiene la palabra \"Euros\":\r",
+							"pm.test(\"Verificar que la respuesta contiene 'Euros'\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"Euros\");\r",
+							"});\r",
+							"\r",
+							"//Verificar que los campos Valor y Fecha no sean nulos:\r",
+							"pm.test(\"Validar que los campos 'Valor' y 'Fecha' no sean nulos\", function() {\r",
+							"    jsonData.Euros.find(function (elemento) {\r",
+							"        return (pm.expect(elemento.Valor).not.to.be.null && pm.expect(elemento.Fecha).not.to.be.null);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "e6c287e75a6d492005437a544a8ad8cedf2fe89e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/euro?formato=json",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"euro"
+					],
+					"query": [
+						{
+							"key": "formato",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
