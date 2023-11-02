@@ -181,7 +181,7 @@
 	"variable": [
 		{
 			"key": "URL",
-			"value": "",
+			"value": "https://api.cmfchile.cl/api-sbifv3/recursos_api",
 			"type": "string"
 		}
 	]
