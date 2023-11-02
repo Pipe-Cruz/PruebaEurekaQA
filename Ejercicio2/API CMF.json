@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "602284b9-a45c-4bdf-926b-2833c44b7cdc",
+		"_postman_id": "70d125ae-2e4b-48fd-bfbd-68afd795a996",
 		"name": "API CMF",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16607431"
@@ -95,7 +95,7 @@
 							"//Respuesta JSON\r",
 							"var jsonData = pm.response.json();\r",
 							"\r",
-							"//Verificar que el encabezado \"Content-Type\" esté presente en la respuesta:\r",
+							"// Verificar que el encabezado \"Content-Type\" esté presente en la respuesta:\r",
 							"pm.test(\"Verificar que el encabezado 'Content-Type' esté presente\", function () {\r",
 							"    pm.response.to.have.header(\"Content-Type\");\r",
 							"});\r",
@@ -104,7 +104,7 @@
 							"pm.test(\"Verificar que la respuesta contiene 'Euros'\", function () {\r",
 							"    pm.expect(jsonData).to.have.property(\"Euros\");\r",
 							"});\r",
-							"\r",
+							" \r",
 							"//Verificar que los campos Valor y Fecha no sean nulos:\r",
 							"pm.test(\"Validar que los campos 'Valor' y 'Fecha' no sean nulos\", function() {\r",
 							"    jsonData.Euros.find(function (elemento) {\r",
