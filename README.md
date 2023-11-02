@@ -272,8 +272,3 @@ pm.test("Validar que los campos 'Valor' y 'Fecha' no sean nulos", function() {
 - Validaciones: Se puede verificar que los test han pasado en la pestaña de *Test Results*:
 
 ![URL base](images/test2.png)
-
-### CONSIDERACIÓN
-
-Al importar el archivo Json existe la posibilidad que no se cree la variable de colección URL utilizada para almacenar la URL base de la API. En dicho caso, se debe como se mostró anteriormente.
-
