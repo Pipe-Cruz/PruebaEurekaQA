@@ -118,7 +118,11 @@ Por buenas prácticas se describió en inglés el escenario. Lo que se conectar�
 
 ### Ejecución aplicativo
 
-Cómo se explicó en la sección anterior, el archivo *ExercisesRunner.java* ejecuta todo el aplicativo, de modo que se ejecuta este archivo como un JUnit Test
+Dentro del repositorio en la carpeta Ejercicio1 se encuentra el proyecto Java a importar con el nombre *Prueba*. 
+
+![Importar aplicativo](images/execute.png)
+
+Cómo se explicó en la sección anterior, el archivo *ExercisesRunner.java* ejecuta todo el aplicativo, de modo que se ejecuta este archivo como un JUnit Test.
 
 ![RunnerTest](images/Runner.png)
 
